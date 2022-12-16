@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 
@@ -11,7 +11,7 @@ import { DynamicContentServiceService } from '../dynamic-content-service.service
 export class DynamicContentViewComponent {
   
   @Input()
-  type!: string;
+  type!: string | undefined;
 
   @Input()
   data!:unknown;
@@ -19,7 +19,8 @@ export class DynamicContentViewComponent {
   @Input()
   config!:unknown;
 
-  click!:EventEmitter<void>
+  @Output()
+  click:EventEmitter<void> = new EventEmitter()
   
   constructor(private dynamicContentServiceService:DynamicContentServiceService,private cd:ChangeDetectorRef){
 
@@ -28,15 +29,16 @@ export class DynamicContentViewComponent {
 
   @ViewChild("container", { read: ViewContainerRef }) set setContailner(viewContainerRef: ViewContainerRef) {
 
-    let component = this.dynamicContentServiceService.getTypeFromString(this.type);
+    let component = this.dynamicContentServiceService.getTypeFromString(this.type || '');
 
     viewContainerRef.clear();
     if(component){
       const componentRef = viewContainerRef.createComponent<DynamicContent>(component);
       componentRef.instance.data=this.data;
       componentRef.instance.config=this.config;
-      this.click = componentRef.instance.click;
+      componentRef.instance.click=this.click;
       this.cd.detectChanges();
+      
     }
   }
 

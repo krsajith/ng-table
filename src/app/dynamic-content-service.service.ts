@@ -26,7 +26,7 @@ export class DynamicContentServiceService {
   constructor() { }
   getTypeFromString(typeName: string) {
     if (!DynamicContentServiceService.implementations.has(typeName)) {
-      throw new Error("This type type does not exist. Did you forget to @Register() it?");
+      throw new Error(`This type ${typeName} does not exist. Did you forget to @Register() it?`);
     }
     return DynamicContentServiceService.implementations.get(typeName);
   }

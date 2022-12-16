@@ -41,7 +41,8 @@ export class AppComponent implements OnInit {
     component: "table",
     tableRow:{
       columns: ['name', 'email'],
-      className:"person-row"
+      className:"person-row",
+      type:"table-row"
     },    
     children: [
       {
@@ -50,7 +51,8 @@ export class AppComponent implements OnInit {
         component: "table-row",
         tableRow:{
           columns: ['city', 'buildingNumber', 'streetName'],
-          className:"person-row"
+          className:"address-row",
+          type:"table"
         }
         
       }
