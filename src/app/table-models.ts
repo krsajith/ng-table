@@ -12,6 +12,7 @@ export interface TableRow {
     columns:string[];
 }
 export interface TableEntry {
+    id:string,
     data:any;
     type:string
     config:unknown;

@@ -48,6 +48,7 @@ export class AppComponent {
     children: [
       {
         name: "Address List",
+        className: "table",
         field: "addressList",
         tableEntry: {
           type: "table-row",
