@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 
@@ -9,6 +9,19 @@ import { DynamicContentServiceService } from '../dynamic-content-service.service
 })
 @DynamicContentServiceService.register("one")
 export class DynamicContentOneComponent implements DynamicContent {
-  data: unknown;
+  click!: EventEmitter<void>;
+  config: unknown;
+  _data: unknown;
+  
+
+  set data (data:unknown){
+    this._data=data;
+    console.log(this.data);
+    
+  }
+
+  get list () {
+    return this._data as []
+  }
 
 }

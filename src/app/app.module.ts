@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { DynamicContentOneComponent } from './dynamic-content-one/dynamic-content-one.component';
 import { DynamicContentTwoComponent } from './dynamic-content-two/dynamic-content-two.component';
 import { DynamicContentViewComponent } from './dynamic-content-view/dynamic-content-view.component';
+import { TableRowComponent } from './table-row/table-row.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -13,6 +15,8 @@ import { DynamicContentViewComponent } from './dynamic-content-view/dynamic-cont
     DynamicContentOneComponent,
     DynamicContentTwoComponent,
     DynamicContentViewComponent,
+    TableRowComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule

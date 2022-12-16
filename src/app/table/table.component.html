@@ -1,0 +1,8 @@
+
+<div [ngClass]="tableDefinition.className">
+    <ng-container *ngFor="let tableRow of list;index as i">
+       <app-dynamic-content-view (click)="expand(i,data)" type="table-row" [data]="tableRow.data" [config]="tableRow" ></app-dynamic-content-view>
+    </ng-container>
+</div>
+
+<!-- {{list | json}} -->

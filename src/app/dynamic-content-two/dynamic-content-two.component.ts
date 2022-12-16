@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 
@@ -9,6 +9,8 @@ import { DynamicContentServiceService } from '../dynamic-content-service.service
 })
 @DynamicContentServiceService.register("two")
 export class DynamicContentTwoComponent implements DynamicContent{
+  click!: EventEmitter<void>;
+  config: unknown;
   data: unknown;
 
 }

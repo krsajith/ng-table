@@ -1,0 +1,4 @@
+<div [ngClass]="tableRow.className">
+        <span *ngFor="let col of tableRow.columns">{{data[col]}}</span>
+        <button (click)="handleClick()">Expand</button>
+</div>
