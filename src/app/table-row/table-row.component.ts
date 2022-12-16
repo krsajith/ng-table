@@ -12,7 +12,7 @@ import { TableRow } from '../table-models';
 export class TableRowComponent implements DynamicContent {
 
   @Output()
-  public click:EventEmitter<void> = new EventEmitter();
+  public clicked:EventEmitter<void> = new EventEmitter();
 
   @Input()
   data: any;

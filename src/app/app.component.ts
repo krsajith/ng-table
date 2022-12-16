@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { TableDefinition, TableRowData } from './table-models';
+import { TableDefinition } from './table-models';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   title = 'ng-table';
   data = [
@@ -38,43 +38,26 @@ export class AppComponent implements OnInit {
 
   tableDefinition: Partial<TableDefinition> = {
     className: "table",
-    component: "table",
-    tableRow:{
-      columns: ['name', 'email'],
-      className:"person-row",
-      type:"table-row"
-    },    
+    tableEntry: {
+      type: "table-row",
+      config: {
+        columns: ['name', 'email'],
+        className: "person-row",
+      }
+    },
     children: [
       {
         name: "Address List",
         field: "addressList",
-        component: "table-row",
-        tableRow:{
-          columns: ['city', 'buildingNumber', 'streetName'],
-          className:"address-row",
-          type:"table"
+        tableEntry: {
+          type: "table-row",
+          config: {
+            columns: ['city', 'buildingNumber', 'streetName'],
+            className: "address-row",
+          }
         }
-        
       }
     ],
-  }
-
-  tableRowData: Partial<TableRowData>[] = []
-
-  ngOnInit(): void {
-    this.showTableRows(this.tableDefinition, this.data);
-  }
-  showTableRows(td: Partial<TableDefinition>, data: any[]) {
-    // for (const row of data) {
-    //   this.tableRowData.push({
-    //     className: td.className,
-    //     data: row,
-    //     cols: td.columns
-    //   })
-    // }
-
-    // console.log(this.tableRowData);
-    
   }
 }
 

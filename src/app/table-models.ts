@@ -4,15 +4,16 @@ export interface TableDefinition {
     component: string;
     children: Partial<TableDefinition>[];
     className:string;
-    tableRow:TableRow;
+    tableEntry:Partial<TableEntry>;
 }
 
 export interface TableRow {
     className:string;
     columns:string[];
-    
 }
-export interface TableRowData extends TableRow {
+export interface TableEntry {
     data:any;
+    type:string
+    config:unknown;
 }
 

@@ -20,7 +20,7 @@ export class DynamicContentViewComponent {
   config!:unknown;
 
   @Output()
-  click:EventEmitter<void> = new EventEmitter()
+  clicked:EventEmitter<void> = new EventEmitter()
   
   constructor(private dynamicContentServiceService:DynamicContentServiceService,private cd:ChangeDetectorRef){
 
@@ -34,11 +34,10 @@ export class DynamicContentViewComponent {
     viewContainerRef.clear();
     if(component){
       const componentRef = viewContainerRef.createComponent<DynamicContent>(component);
-      componentRef.instance.data=this.data;
       componentRef.instance.config=this.config;
-      componentRef.instance.click=this.click;
+      componentRef.instance.data=this.data;
+      componentRef.instance.clicked=this.clicked;
       this.cd.detectChanges();
-      
     }
   }
 

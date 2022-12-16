@@ -1,4 +1,4 @@
 <div [ngClass]="tableRow.className">
         <span *ngFor="let col of tableRow.columns">{{data[col]}}</span>
-        <button (click)="click.emit()">Expand</button>
+        <button (click)="clicked.emit(data)">Expand</button>
 </div>
