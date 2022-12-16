@@ -10,11 +10,6 @@ import { TableRow } from '../table-models';
 })
 @DynamicContentServiceService.register("table-row")
 export class TableRowComponent implements DynamicContent {
-handleClick() {
-  console.log('click');
-  
-  this.click.emit()
-}
 
   @Output()
   public click:EventEmitter<void> = new EventEmitter();
