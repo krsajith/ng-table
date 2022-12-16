@@ -1,7 +1,7 @@
 
 <div [ngClass]="tableDefinition.className">
     <ng-container *ngFor="let tableEntry of list;index as i">
-       <app-dynamic-content-view (click)="expand(i,tableEntry.data,$event)" [type]="tableEntry.type" [data]="tableEntry.data" [config]="tableEntry.config" ></app-dynamic-content-view>
+       <app-dynamic-content-view (click)="expand(i,tableEntry,$event)" [type]="tableEntry.type" [data]="tableEntry.data" [config]="tableEntry.config" ></app-dynamic-content-view>
     </ng-container>
 </div>
 

@@ -15,5 +15,6 @@ export interface TableEntry {
     data:any;
     type:string
     config:unknown;
+    expanded:boolean;
 }
 
