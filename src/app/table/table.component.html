@@ -1,4 +1,4 @@
-<div [ngClass]="tableDefinition.className">
+<div [ngClass]="tableDefinition.className" @myInsertRemoveTrigger >
     <app-dynamic-content-view @myInsertRemoveTrigger *ngFor="let tableEntry of list; index as i; trackBy: trackById"
       (click)="expand(i, tableEntry, $event)"
       [type]="tableEntry.type"

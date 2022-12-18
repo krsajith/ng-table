@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostBinding, Input } from '@angular/core';
 import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 import { TableDefinition, TableEntry } from '../table-models';
@@ -14,7 +14,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
     trigger('myInsertRemoveTrigger', [
       transition(':enter', [
         style({"max-height": '0px'}),
-        animate('2000ms ease', style( {"max-height": '500px'})),
+        animate('300ms ease', style( {"max-height": '72px'})),
       ]),
       transition(':leave', [
         animate('200ms ease', style( {"max-height": '0'})),
@@ -34,6 +34,7 @@ export class TableComponent implements DynamicContent {
   constructor(private cd: ChangeDetectorRef) {
 
   }
+
 
   set config(config: unknown) {
     this.tableDefinition = config as TableDefinition;
