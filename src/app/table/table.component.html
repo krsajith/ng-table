@@ -1,5 +1,5 @@
-<div [ngClass]="tableDefinition.className" @myInsertRemoveTrigger >
-    <app-dynamic-content-view @myInsertRemoveTrigger *ngFor="let tableEntry of list; index as i; trackBy: trackById"
+<div [ngClass]="tableDefinition.className"  >
+    <app-dynamic-content-view [@heightAnimation]="{value:'in',params:{height:list.length * 1}}" *ngFor="let tableEntry of list; index as i; trackBy: trackById"
       (click)="expand(i, tableEntry, $event)"
       [type]="tableEntry.type"
       [data]="tableEntry.data"

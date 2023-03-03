@@ -3,7 +3,7 @@ import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 import { TableDefinition, TableEntry } from '../table-models';
 import { nanoid } from 'nanoid'
-import { animate, group, query, style, transition, trigger } from '@angular/animations';
+import { animate, group, query, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-table',
@@ -11,15 +11,22 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
   styleUrls: ['./table.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations:[
-    trigger('myInsertRemoveTrigger', [
+    // the fade-in/fade-out animation.
+    trigger('heightAnimation', [
+
+      // the "in" style determines the "resting" state of the element when it is visible.
+      state('in', style({maxHeight: "{{height}}rem"}), { params: { height: 100 } }),
+
+      // fade in when created. this could also be written as transition('void => *')
       transition(':enter', [
-        style({"max-height": '0px'}),
-        animate('300ms ease', style( {"max-height": '72px'})),
+        style({maxHeight: 0}),
+        animate(200)
       ]),
-      transition(':leave', [
-        animate('200ms ease', style( {"max-height": '0'})),
-      ])
-    ]),
+
+      // fade out when destroyed. this could also be written as transition('void => *')
+      transition(':leave',
+        animate(400, style({maxHeight: 0})))
+    ])
   ]
 })
 @DynamicContentServiceService.register("table")
@@ -27,6 +34,7 @@ export class TableComponent implements DynamicContent {
 
   clicked!: EventEmitter<void>;
 
+  @Input()
   tableDefinition!: Partial<TableDefinition>;
 
   list!: Partial<TableEntry>[];

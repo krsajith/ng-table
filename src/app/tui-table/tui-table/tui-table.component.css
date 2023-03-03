@@ -1,0 +1,22 @@
+.tui-table  {
+    display: grid;
+    position: relative;
+    /* column-gap: 1rem; */
+    grid-template-columns: repeat(14,  auto);
+  }
+
+  .tui-table  .col {
+    white-space: nowrap;
+  }
+
+  .tui-table .table-col-header  {
+    position: sticky;
+    position: -webkit-sticky;
+    left: 0;
+    background-color: white;
+    padding: .5rem;
+    width: 100%;
+    display: flex;
+    justify-items: start;
+  }
+  
