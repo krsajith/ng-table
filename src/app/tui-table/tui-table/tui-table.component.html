@@ -1,14 +1,19 @@
 <div class="relative m-5 w-2/3 overflow-auto" style="height: 500px;">
   <div class="tui-table">
-    <span class="table-col-header">Select</span>
+    <span class="table-col-header table-row-header" [style.z-index]="30">Select</span>
     <ng-container *ngFor="let col of cols;index as i">
-      <span class="col table-row-header" [class.table-col-header]="i==0" [style.z-index]="i==0 ? 20 : 10" > {{col}} </span>
+      <div class="col table-row-header" [class.table-col-header]="i==0" [style.z-index]="i==0 ? 20 : 10"> {{col}}
+        <span class="col-seperator"></span>
+      </div>
     </ng-container>
 
-    <ng-container *ngFor="let item of data">
-      <span class="table-col-header"><input type="checkbox"/></span>
+    <ng-container *ngFor="let item of data;index as rowIndex">
+      <span class="table-col-header"><input type="checkbox" /></span>
       <ng-container *ngFor="let col of cols;index as i">
-        <span class="col" [class.table-col-header]="i==0"> {{item[col]}} </span>
+        <span *ngIf="rowIndex==0" >
+          <input>
+        </span>
+        <span *ngIf="rowIndex!=0" class="col" [class.table-col-header]="i==0"> {{item[col]}} </span>
       </ng-container>
     </ng-container>
   </div>

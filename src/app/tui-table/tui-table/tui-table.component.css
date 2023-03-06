@@ -1,6 +1,6 @@
 :host {
   --no-of-columns: 15;
-  --col-header-first-child-width: 2rem;
+  --col-header-first-child-width: 3rem;
   --col-header-second-child-width: auto;
 }
 
@@ -17,6 +17,7 @@
     white-space: nowrap;
   }
 
+  
   .tui-table .table-col-header  {
     position: sticky;
     position: -webkit-sticky;
@@ -28,10 +29,16 @@
     justify-items: start;
   }
 
-.tui-table .table-col-header:nth-child(5n) {
-  left: var(--col-header-first-child-width);
-  background-color: red;
-}
+  .tui-table .table-col-header:nth-child(3n+1) {
+    width: var(--col-header-first-child-width);
+    background-color: red; 
+    z-index: 20;
+  }
+  
+  .tui-table .table-col-header:nth-child(3n+2) {
+    left: var(--col-header-first-child-width);
+    background-color: green;
+  }
 
 .tui-table  .table-row-header {
   background-color: aquamarine;
@@ -40,9 +47,14 @@
   top: 0;
   padding: .5rem;
   width: 100%;
-  display: flex;
-  justify-items: start;
-  
-  
+
+  z-index: 10;
+    display: flex;
+    justify-content: space-between;
 }  
-  
+
+.col-seperator {
+  background-color: darkblue;
+    padding: 0.05rem;
+    cursor: col-resize;
+}
