@@ -1,6 +1,6 @@
 .wrapper {
     width: 10rem;
     height: 5rem;
-    background: var(--fooBg, hotpink);
+    background: var(--grand-child-bg, hotpink);
     padding: var(--fooPaddingY, 10px) var(--fooPaddingX, 10px)
   }

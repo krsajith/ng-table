@@ -1,8 +1,16 @@
+:host {
+  --no-of-columns: 15;
+  --col-header-first-child-width: 2rem;
+  --col-header-second-child-width: auto;
+}
+
+
 .tui-table  {
     display: grid;
     position: relative;
     /* column-gap: 1rem; */
-    grid-template-columns: repeat(14,  auto);
+    grid-template-columns: repeat(var(--no-of-columns),  auto);
+    width: min-content;
   }
 
   .tui-table  .col {
@@ -19,4 +27,22 @@
     display: flex;
     justify-items: start;
   }
+
+.tui-table .table-col-header:nth-child(5n) {
+  left: var(--col-header-first-child-width);
+  background-color: red;
+}
+
+.tui-table  .table-row-header {
+  background-color: aquamarine;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  padding: .5rem;
+  width: 100%;
+  display: flex;
+  justify-items: start;
+  
+  
+}  
   

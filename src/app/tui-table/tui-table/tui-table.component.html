@@ -1,27 +1,14 @@
-<div class="relative m-5 w-2/3 overflow-x-auto ">
-<div class="tui-table">
-    <ng-container *ngFor="let item of data">
-        <ng-container *ngFor="let col of cols;index as i" >
-            <span class="col" [class.table-col-header]="i==0"> {{item[col]}} </span>
-        </ng-container>            
-</ng-container>
-</div>
+<div class="relative m-5 w-2/3 overflow-auto" style="height: 500px;">
+  <div class="tui-table">
+    <span class="table-col-header">Select</span>
+    <ng-container *ngFor="let col of cols;index as i">
+      <span class="col table-row-header" [class.table-col-header]="i==0" [style.z-index]="i==0 ? 20 : 10" > {{col}} </span>
+    </ng-container>
 
-  <!-- <div class="table-col-header">
-    <input type="checkbox">
-    <button>Save</button>
+    <ng-container *ngFor="let item of data">
+      <span class="table-col-header"><input type="checkbox"/></span>
+      <ng-container *ngFor="let col of cols;index as i">
+        <span class="col" [class.table-col-header]="i==0"> {{item[col]}} </span>
+      </ng-container>
+    </ng-container>
   </div>
-  <div>Two</div>
-  <div>Third</div>
-  <div>Four</div>
-  <div>Five</div>
-  <div class="table-col-header">One</div>
-  <div>Two</div>
-  <div>Three</div>
-  <div>Four</div>
-  <div>Five</div>
-  <div class="table-col-header">One</div>
-  <div>Two</div>
-  <div>Three</div>
-  <div>Four</div>
-  <div>Five 555555555555555555</div> -->

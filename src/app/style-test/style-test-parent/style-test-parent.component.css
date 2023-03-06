@@ -1,5 +1,5 @@
 
 app-style-test-child {
-    --fooBg: blue;
+    --grand-child-bg: blue;
     --fooPaddingY: 20px;
   }
