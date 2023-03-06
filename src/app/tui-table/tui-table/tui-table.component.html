@@ -1,8 +1,36 @@
-<div class="relative m-5 w-2/3 overflow-x-auto ">
+<div class="table-section">
 <div class="tui-table">
+    <ng-container class="header-container"  *ngFor="let headerName of cols;index as i">
+      <span  class="first-col sec-col-headername headerNames"  [class.first-col]="i==0" [class.sec-col-headername]="i==1"> 
+        
+        <ng-container *ngIf="headerName == 'checkbox'">
+          <input type="checkbox" class="checkbox">
+        </ng-container>
+
+        <ng-container *ngIf="headerName != 'checkbox'">
+          <span > {{headerName}}</span>
+        </ng-container>
+      </span>    
+    </ng-container>
+  
+  
     <ng-container *ngFor="let item of data">
         <ng-container *ngFor="let col of cols;index as i" >
-            <span class="col" [class.table-col-header]="i==0"> {{item[col]}} </span>
+          <span class="col sec-col tableData" [class.table-col-header]="i==0" [class.sec-col]="i==1">
+
+            <ng-container *ngIf="col == 'checkbox'">
+              <input type="checkbox" class="checkbox col">
+              <svg (click)="nestedTableData()" style="margin-left: .5rem;" width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 1.5L5.5 5.5L9.5 1.5" stroke="#333333" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"/>
+                </svg>
+            </ng-container>
+
+            <ng-container *ngIf="item[col] != 'checkbox'">
+              {{item[col]}} 
+            </ng-container>
+          </span>
+            
         </ng-container>            
 </ng-container>
 </div>

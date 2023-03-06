@@ -8,7 +8,7 @@ import data from "./data";
 export class TuiTableComponent implements OnInit {
 
   data = data;
-  cols = ['tradeId', 'tradeDateTime', 'tradeTransactionType', 'isInternalTrade', 'company', 'counterparty', 'profitcenter', 'traderName', 'commodity', 'origin', 'brand', 'grade', 'capacity', 'quantityToleranceType'];
+  cols = ['checkbox','tradeId', 'tradeDateTime', 'tradeTransactionType', 'isInternalTrade', 'company', 'counterparty', 'profitcenter', 'traderName', 'commodity', 'origin', 'brand', 'grade', 'capacity', 'quantityToleranceType'];
 
   ngOnInit(): void {
     console.log(this.cols.length);
@@ -16,6 +16,11 @@ export class TuiTableComponent implements OnInit {
      
 
 
+  }
+
+  nestedTableData(){
+    console.log("expanded table got clicked");
+    
   }
 
 }

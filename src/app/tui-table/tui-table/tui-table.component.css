@@ -1,22 +1,115 @@
+.table-section{
+  overflow: auto;
+  width: 100%;
+  border: 1px solid #E1E1E1;
+  border-top: 0px;
+}
+
+.first-col{
+  top:0;
+  position: sticky !important;
+  position: -webkit-sticky;
+  left: 0;
+  background-color: white;
+  padding: .5rem;
+  width: 100%;
+  display: flex;
+  justify-items: start;
+  z-index:12 !important;
+}
+
+.header-container{
+  top:0;
+  position: sticky;
+  z-index: 12;
+}
+
 .tui-table  {
-    display: grid;
-    position: relative;
-    /* column-gap: 1rem; */
-    grid-template-columns: repeat(14,  auto);
-  }
+  display: grid;
+  grid-template-columns: repeat(15,  auto);
+  width: min-content;
+  height: 50rem;
+}
 
-  .tui-table  .col {
-    white-space: nowrap;
-  }
+.tui-table  .col {
+  white-space: nowrap;
+}
 
-  .tui-table .table-col-header  {
-    position: sticky;
-    position: -webkit-sticky;
-    left: 0;
-    background-color: white;
-    padding: .5rem;
-    width: 100%;
-    display: flex;
-    justify-items: start;
-  }
+
+.tui-table .table-col-header  {
+  position: sticky;
+  position: -webkit-sticky;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  justify-items: start;
+}
+
+.headerNames{
+  top:0;
+  position: sticky;
+  gap: 0.3rem;
+  background-color: #D9DBDE;;
+  padding: 1rem;
+  border-right: 1.5px solid #B9B9B9;;
+  color: #767676;
+  padding-left: 1rem;
+  font-size: 14;
+  font-weight: 600;
+  z-index: 11;
+}
+
+.tableData{
+  gap: 5rem;
+  padding: 1rem;
+  border-bottom: 1px solid #E1E1E1;
+
+}
+
+.sec-col-headername{
+  top:0;
+  position: sticky;
+  position: -webkit-sticky;
+  left: 4rem;
+  padding: 1rem;
+  width: 100%;
+  justify-items: start;
+  z-index:13 ;
+}
+
+.sec-col{
+  top:0;
+  position: sticky;
+  position: -webkit-sticky;
+  left: 4rem;
+  padding: 1rem;
+  width: 100%;
+  justify-items: start;
+  z-index:11 ;
+  background-color: white;
+}
+
+.checkbox{
+  height: 1rem;
+  width: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox:focus{
+  outline: none;
+}
   
+
+::-webkit-scrollbar{
+  height: 0.4vw;
+  width: 0.4vw;
+}
+
+::-webkit-scrollbar-track{
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: rgb(173, 171, 171);
+}
