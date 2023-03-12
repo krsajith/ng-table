@@ -15,7 +15,11 @@ import { StyleTestParentComponent } from './style-test/style-test-parent/style-t
 import { StyleTestChildComponent } from './style-test/style-test-child/style-test-child.component';
 import { StyleTestGrandChildComponent } from './style-test/style-test-grand-child/style-test-grand-child.component';
 import { TuiTableComponent } from './tui-table/tui-table/tui-table.component';
-
+import {DialogModule} from '@angular/cdk/dialog';
+import { FileImportDialogComponent } from './file-import-dialog/file-import-dialog.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,11 +37,16 @@ import { TuiTableComponent } from './tui-table/tui-table/tui-table.component';
     StyleTestParentComponent,
     StyleTestChildComponent,
     StyleTestGrandChildComponent,
-    TuiTableComponent
+    TuiTableComponent,
+    FileImportDialogComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DialogModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

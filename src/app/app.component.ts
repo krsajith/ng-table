@@ -1,5 +1,8 @@
+import { Dialog } from '@angular/cdk/dialog';
+import { Overlay } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { FileImportDialogComponent } from './file-import-dialog/file-import-dialog.component';
 import { TableDefinition } from './table-models';
 
 @Component({
@@ -65,7 +68,7 @@ export class AppComponent {
   characters!: Observable<any[]>;
   columns!: string[];
 
-  constructor() {
+  constructor(public dialog: Dialog,private overlay: Overlay) {
   }
 
   ngOnInit() {
@@ -96,6 +99,17 @@ export class AppComponent {
         occupation: 'Babysitter'
       },
     ])
+  }
+
+  openDialog(): void {
+
+    const positionStrategy = this.overlay
+    .position()
+    .global()
+    .right()
+    .centerVertically();
+
+    this.dialog.open<string>(FileImportDialogComponent,{positionStrategy:positionStrategy,panelClass: 'full-height-dialog'});
   }
 }
 

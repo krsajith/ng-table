@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import data from "./data";
 @Component({
   selector: 'tui-table',
@@ -7,15 +7,11 @@ import data from "./data";
 })
 export class TuiTableComponent implements OnInit {
 
-  data = data;
-  cols = ['tradeId', 'tradeDateTime', 'tradeTransactionType', 'isInternalTrade', 'company', 'counterparty', 'profitcenter', 'traderName', 'commodity', 'origin', 'brand', 'grade', 'capacity', 'quantityToleranceType'];
+  @Input() data = data;
+  @Input()cols = ['tradeId', 'tradeDateTime', 'tradeTransactionType', 'isInternalTrade', 'company', 'counterparty', 'profitcenter', 'traderName', 'commodity', 'origin', 'brand', 'grade', 'capacity', 'quantityToleranceType'];
 
   ngOnInit(): void {
     console.log(this.cols.length);
-    
-     
-
-
   }
 
 }

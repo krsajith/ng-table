@@ -1,1 +1,4 @@
 https://play.tailwindcss.com/OHFrKqxs7M?file=css
+
+
+Date.now().toString(36) + Math.random().toString(36).substr(2);

@@ -2,25 +2,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '@angular/cdk/overlay-prebuilt.css';
 
-*,*::after,*::before {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
 
+html,
+body {
+    height: 100%;
 }
 
 .person-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap:1rem;
+    column-gap: 1rem;
     background-color: blueviolet;
 }
 
 .address-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    column-gap:1rem;
+    column-gap: 1rem;
     background-color: cadetblue;
 }
 
@@ -34,3 +41,18 @@ button {
     border: none;
 }
 
+.pancake-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.full-height-dialog {
+    width: auto;
+    height: 100%;
+
+}
+
+/* .file-import-dialog {
+    background-color: transparent;
+} */
