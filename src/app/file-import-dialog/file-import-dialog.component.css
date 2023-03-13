@@ -75,7 +75,7 @@
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .file-import-dialog > .header > .info > .file-info {
@@ -108,3 +108,8 @@
    background: #F2F2F2;
 
 }
+
+:host .table-container{
+  background-color: #ff8200;
+}
+

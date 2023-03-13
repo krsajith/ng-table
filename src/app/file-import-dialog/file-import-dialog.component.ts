@@ -9,14 +9,16 @@ import { FileUploadService } from '../services/file-upload.service';
 })
 export class FileImportDialogComponent {
   file: File | undefined;
+  data!: any[] | undefined;
+  cols!: string[];
   constructor(public dialogRef: DialogRef,private fileUploadService:FileUploadService) { }
  async  handleFile(event: Event) {
     const input = event.target as HTMLInputElement;
     this.file = input.files ?  input.files[0] : undefined;
     console.log(this.file);
     
-    const data = await this.fileUploadService.upload(input,'test');
-    console.log(data);
+    this.data = await this.fileUploadService.upload<any[]>(input,'test');
+    this.cols= this.data ? Object.keys(this.data[0]) : [];
   }
 
   formatBytes(bytes:number,decimals:number) {

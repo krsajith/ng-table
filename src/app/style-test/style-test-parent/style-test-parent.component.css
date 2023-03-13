@@ -1,5 +1,11 @@
-
 app-style-test-child {
-    --grand-child-bg: blue;
-    --fooPaddingY: 20px;
-  }
+  --grand-child-bg: blue;
+  --fooPaddingY: 20px;
+}
+
+
+app-style-test-child > .box {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}

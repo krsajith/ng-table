@@ -20,6 +20,7 @@ import { FileImportDialogComponent } from './file-import-dialog/file-import-dial
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     DialogModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

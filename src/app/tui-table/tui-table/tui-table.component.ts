@@ -1,17 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
-import data from "./data";
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 @Component({
-  selector: 'tui-table',
+  selector: '[tui-table]',
   templateUrl: './tui-table.component.html',
-  styleUrls: ['./tui-table.component.css']
+  styleUrls: ['./tui-table.component.css'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class TuiTableComponent implements OnInit {
 
-  @Input() data = data;
-  @Input()cols = ['tradeId', 'tradeDateTime', 'tradeTransactionType', 'isInternalTrade', 'company', 'counterparty', 'profitcenter', 'traderName', 'commodity', 'origin', 'brand', 'grade', 'capacity', 'quantityToleranceType'];
+  @Input() data:any[] | undefined;
+  @Input()cols: any[] | undefined;
 
   ngOnInit(): void {
-    console.log(this.cols.length);
+    
   }
 
 }

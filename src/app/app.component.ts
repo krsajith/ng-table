@@ -12,6 +12,10 @@ import { TableDefinition } from './table-models';
 })
 export class AppComponent {
 
+  // overlayPositionStrategy = this.overlay
+  // .position().flexibleConnectedTo()
+
+
   title = 'ng-table';
   data = [
     { "name": "Pamela Altenwerth", "email": "Leslie_Welch31@yahoo.com" },
@@ -67,6 +71,8 @@ export class AppComponent {
 
   characters!: Observable<any[]>;
   columns!: string[];
+
+  isOpen = false;
 
   constructor(public dialog: Dialog,private overlay: Overlay) {
   }

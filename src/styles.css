@@ -45,7 +45,14 @@ button {
     height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    gap: .5rem;
 }
+
+.pancake-wrapper > .content {
+    overflow: hidden;
+}
+
+
 
 .full-height-dialog {
     width: auto;

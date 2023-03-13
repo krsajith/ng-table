@@ -15,7 +15,7 @@ export class FileUploadService {
 
   constructor(private http: HttpClient) { }
 
-  async upload(input: HTMLInputElement | null, bucket: string) {
+  async upload<T>(input: HTMLInputElement | null, bucket: string):Promise<T> {
     if (input !== null && input.files) {
       const file = input.files[0];
       const self = this;
@@ -23,9 +23,9 @@ export class FileUploadService {
       const fileName = nanoid(10) + '.' + file.name.split('.').pop();
       formData.append('file', file, fileName);
       formData.append('name', fileName);
-      const resp = await firstValueFrom(self.http.post(`${environment.apiEndpoint}/upload-file/${bucket}`, formData, {}));
+      const resp = await firstValueFrom(self.http.post<T>(`${environment.apiEndpoint}/upload-file/${bucket}`, formData, {}));
       return Promise.resolve(resp);
     }
-    return undefined;
+    return Promise.reject();
   }
 }

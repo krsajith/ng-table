@@ -6,13 +6,14 @@
           <button class="tui-button secondary">Excel</button>
         </div>
       </div>
-      <span>Uploade files</span>
+      <span>Uploaded files</span>
       <div class="info">
         <input #fileInput type="file" hidden (change)="handleFile($event)">
         <button class="tui-button primary" (click)="fileInput.click()">Browse</button>
         <div *ngIf="file" class="file-info">
           <span> {{file.name}} </span>
           <span> {{formatBytes(file.size,2)}} </span>
+          <span *ngIf="data">{{data.length}} Rows</span>
           <button class="tui-button primary">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -21,7 +22,9 @@
         </div>
       </div>
     </div>
-    <div class="content"></div>
+    <div class="content" tui-table [data]="data" [cols]="cols">
+        <!-- <tui-table [data]="data" [cols]="cols"></tui-table>       -->
+    </div>
     <div class="footer">
       <button class="tui-button secondary" (click)="dialogRef.close()">Close</button>
       <button class="tui-button primary">Import</button>
