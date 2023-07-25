@@ -21,6 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { SimpleInputControl } from './simple-input-control/simple-input-control.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     StyleTestGrandChildComponent,
     TuiTableComponent,
     FileImportDialogComponent,
-    HomeComponent
+    HomeComponent,
+    SimpleInputControl
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,9 @@ import {OverlayModule} from '@angular/cdk/overlay';
     DialogModule,
     AppRoutingModule,
     HttpClientModule,
-    OverlayModule
+    OverlayModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

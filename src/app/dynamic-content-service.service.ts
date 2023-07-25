@@ -1,5 +1,6 @@
 import { Injectable, Type } from '@angular/core';
 import { DynamicContent } from './dynamic-content';
+import { BaseComponent } from './base/base.component';
 
 type Constructor<T> = {
   new(...args: any[]): T;
@@ -11,9 +12,9 @@ type Constructor<T> = {
 })
 export class DynamicContentServiceService {
 
-  static implementations: Map<string,Type<DynamicContent>> = new Map();
+  static implementations: Map<string,Type<DynamicContent | BaseComponent >> = new Map();
   static register(typeName: string) {
-    return function<T extends Constructor<DynamicContent>>(ctor: T) {
+    return function<T extends Constructor<DynamicContent | BaseComponent>>(ctor: T) {
       if (DynamicContentServiceService.implementations.hasOwnProperty(typeName)) {
         console.error("This type type has already been registered. Did you forget to change the argument for @Register()?");
       }
