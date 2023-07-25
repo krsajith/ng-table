@@ -19,43 +19,41 @@ import { BaseConrolComponent } from '../base-conrol/base-conrol.component';
 })
 export class DynamicContentViewComponent  {
 
-
-  @Input()
-  type!: string | undefined;
-
-  @Input()
-  data!: unknown;
-
   @Input()
   config!: unknown;
 
-  @Output()
-  clicked: EventEmitter<void> = new EventEmitter()
+
+  @Input()
+  type!: string;
+
+
 
   constructor(private injector: Injector,
-    private dynamicContentServiceService: DynamicContentServiceService, private cd: ChangeDetectorRef) {
+    private dynamicContentServiceService: DynamicContentServiceService, private cd: ChangeDetectorRef,
+    private viewContainerRef: ViewContainerRef) {
     
   }
 
 
-  @ViewChild("container", { read: ViewContainerRef }) set setContailner(viewContainerRef: ViewContainerRef) {
-
+  // @ViewChild("container", { read: ViewContainerRef }) set setContailner(viewContainerRef: ViewContainerRef) {
+    public ngOnInit(): void {
     let component = this.dynamicContentServiceService.getTypeFromString(this.type || '') as Type<BaseConrolComponent>;
     console.log(component);
 
 
-    viewContainerRef.clear();
+    this.viewContainerRef.clear();
     if (component) {
-      const componentRef = viewContainerRef.createComponent<BaseConrolComponent>(component);
+      const componentRef = this.viewContainerRef.createComponent<BaseConrolComponent>(component);
       componentRef.instance.init(
         {
           config: this.config,
-          data: this.data,
-          clicked: this.clicked
         }
       );
 
-      this.setValueAccessor(componentRef.instance);
+      // this.setValueAccessor(componentRef.instance);
+
+      const ngControl = this.injector.get(NgControl);
+      ngControl.valueAccessor = componentRef.instance;
 
 
 

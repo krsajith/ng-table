@@ -20,6 +20,6 @@ import { DynamicContentServiceService } from '../dynamic-content-service.service
 export class SimpleInputControl extends BaseConrolComponent {
   value = '';
   override writeValue(value: any): void {
-    // this.value = value;
+    this.value = value;
   }
 }

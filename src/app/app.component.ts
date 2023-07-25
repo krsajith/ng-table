@@ -75,7 +75,7 @@ export class AppComponent {
 
   isOpen = false;
 
-  name!:string;
+  name='test';
 
   constructor(public dialog: Dialog,private overlay: Overlay) {
   }
