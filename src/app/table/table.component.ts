@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostBinding, Input } from '@angular/core';
-import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 import { TableDefinition, TableEntry } from '../table-models';
 import { nanoid } from 'nanoid'
 import { animate, group, query, state, style, transition, trigger } from '@angular/animations';
+import { BaseComponent } from '../base/base.component';
 
 @Component({
   selector: 'app-table',
@@ -30,7 +30,7 @@ import { animate, group, query, state, style, transition, trigger } from '@angul
   ]
 })
 @DynamicContentServiceService.register("table")
-export class TableComponent implements DynamicContent {
+export class TableComponent implements BaseComponent {
 
   clicked!: EventEmitter<void>;
 
@@ -41,6 +41,10 @@ export class TableComponent implements DynamicContent {
 
   constructor(private cd: ChangeDetectorRef) {
 
+  }
+
+  init(data?: any): void {
+    
   }
 
 

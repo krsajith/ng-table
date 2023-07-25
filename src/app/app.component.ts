@@ -44,6 +44,7 @@ export class AppComponent {
     { "name": "Miss Stanley Ward", "email": "Caitlyn.Dare@yahoo.com" }
   ]
 
+
   tableDefinition: Partial<TableDefinition> = {
     className: "table",
     tableEntry: {
@@ -73,6 +74,8 @@ export class AppComponent {
   columns!: string[];
 
   isOpen = false;
+
+  name!:string;
 
   constructor(public dialog: Dialog,private overlay: Overlay) {
   }

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 import { TableRow } from '../table-models';
+import { BaseComponent } from '../base/base.component';
 
 @Component({
   selector: 'app-table-row',
@@ -9,7 +9,10 @@ import { TableRow } from '../table-models';
   styleUrls: ['./table-row.component.css']
 })
 @DynamicContentServiceService.register("table-row")
-export class TableRowComponent implements DynamicContent {
+export class TableRowComponent implements BaseComponent {
+  init(data?: any): void {
+    
+  }
 
   @Output()
   public clicked:EventEmitter<void> = new EventEmitter();

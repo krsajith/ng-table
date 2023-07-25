@@ -18,9 +18,8 @@ export abstract class BaseConrolComponent extends BaseComponent implements Contr
   onChange = (_: any) => { }
   onTouch = () => { }
 
-  constructor(@Optional() @SkipSelf() public group: ControlContainer) {
+  constructor() {
     super();
-    console.log(group);
   }
   abstract writeValue(obj: any): void;
 
