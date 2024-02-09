@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-table:build:production"
+              "buildTarget": "ng-table:build:production"
             },
             "development": {
-              "browserTarget": "ng-table:build:development"
+              "buildTarget": "ng-table:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-table:build"
+            "buildTarget": "ng-table:build"
           }
         },
         "test": {
