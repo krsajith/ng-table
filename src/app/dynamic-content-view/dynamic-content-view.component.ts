@@ -3,10 +3,11 @@ import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 
 @Component({
-  selector: 'app-dynamic-content-view',
-  templateUrl: './dynamic-content-view.component.html',
-  styleUrls: ['./dynamic-content-view.component.css'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+    selector: 'app-dynamic-content-view',
+    templateUrl: './dynamic-content-view.component.html',
+    styleUrls: ['./dynamic-content-view.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true
 })
 export class DynamicContentViewComponent {
   

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-mt940',
-  templateUrl: './mt940.component.html',
-  styleUrls: ['./mt940.component.css']
+    selector: 'app-mt940',
+    templateUrl: './mt940.component.html',
+    styleUrls: ['./mt940.component.css'],
+    standalone: true,
+    imports: [NgFor]
 })
 export class Mt940Component {
 

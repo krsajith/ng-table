@@ -2,11 +2,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DynamicContent } from '../dynamic-content';
 import { DynamicContentServiceService } from '../dynamic-content-service.service';
 import { TableRow } from '../table-models';
+import { NgClass, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-table-row',
-  templateUrl: './table-row.component.html',
-  styleUrls: ['./table-row.component.css']
+    selector: 'app-table-row',
+    templateUrl: './table-row.component.html',
+    styleUrls: ['./table-row.component.css'],
+    standalone: true,
+    imports: [NgClass, NgFor]
 })
 @DynamicContentServiceService.register("table-row")
 export class TableRowComponent implements DynamicContent {

@@ -8,8 +8,8 @@ describe('DynamicContentViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DynamicContentViewComponent ]
-    })
+    imports: [DynamicContentViewComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(DynamicContentViewComponent);

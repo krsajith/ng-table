@@ -13,7 +13,8 @@ export interface TenantConfig {
 }
 
 @Pipe({
-  name: 'decimalRoundOff'
+    name: 'decimalRoundOff',
+    standalone: true
 })
 export class DecimalRoundOffPipe implements PipeTransform {
 

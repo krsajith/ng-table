@@ -8,8 +8,8 @@ describe('StyleTestChildComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StyleTestChildComponent ]
-    })
+    imports: [StyleTestChildComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(StyleTestChildComponent);

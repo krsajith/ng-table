@@ -8,8 +8,8 @@ describe('AttributeSelectorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AttributeSelectorComponent ]
-    })
+    imports: [AttributeSelectorComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(AttributeSelectorComponent);

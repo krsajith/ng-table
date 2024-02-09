@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { TableDefinition } from './table-models';
+import { DecimalRoundOffPipe } from './decimal-round-off.pipe';
+import { TuiTableComponent } from './tui-table/tui-table/tui-table.component';
+import { StyleTestParentComponent } from './style-test/style-test-parent/style-test-parent.component';
+import { WrapperComponent } from './selector-types/wrapper/wrapper.component';
+import { TableRowDerectiveComponent } from './table-row-derective/table-row-derective.component';
+import { NgFor, AsyncPipe, DecimalPipe } from '@angular/common';
+import { DynamicContentViewComponent } from './dynamic-content-view/dynamic-content-view.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: true,
+    imports: [DynamicContentViewComponent, NgFor, TableRowDerectiveComponent, WrapperComponent, StyleTestParentComponent, TuiTableComponent, AsyncPipe, DecimalPipe, DecimalRoundOffPipe]
 })
 export class AppComponent {
 

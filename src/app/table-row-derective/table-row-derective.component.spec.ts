@@ -8,8 +8,8 @@ describe('TableRowDerectiveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableRowDerectiveComponent ]
-    })
+    imports: [TableRowDerectiveComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(TableRowDerectiveComponent);

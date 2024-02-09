@@ -4,30 +4,30 @@ import { DynamicContentServiceService } from '../dynamic-content-service.service
 import { TableDefinition, TableEntry } from '../table-models';
 import { nanoid } from 'nanoid'
 import { animate, group, query, state, style, transition, trigger } from '@angular/animations';
+import { DynamicContentViewComponent } from '../dynamic-content-view/dynamic-content-view.component';
+import { NgClass, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations:[
-    // the fade-in/fade-out animation.
-    trigger('heightAnimation', [
-
-      // the "in" style determines the "resting" state of the element when it is visible.
-      state('in', style({maxHeight: "{{height}}rem"}), { params: { height: 100 } }),
-
-      // fade in when created. this could also be written as transition('void => *')
-      transition(':enter', [
-        style({maxHeight: 0}),
-        animate(200)
-      ]),
-
-      // fade out when destroyed. this could also be written as transition('void => *')
-      transition(':leave',
-        animate(400, style({maxHeight: 0})))
-    ])
-  ]
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [
+        // the fade-in/fade-out animation.
+        trigger('heightAnimation', [
+            // the "in" style determines the "resting" state of the element when it is visible.
+            state('in', style({ maxHeight: "{{height}}rem" }), { params: { height: 100 } }),
+            // fade in when created. this could also be written as transition('void => *')
+            transition(':enter', [
+                style({ maxHeight: 0 }),
+                animate(200)
+            ]),
+            // fade out when destroyed. this could also be written as transition('void => *')
+            transition(':leave', animate(400, style({ maxHeight: 0 })))
+        ])
+    ],
+    standalone: true,
+    imports: [NgClass, NgFor, DynamicContentViewComponent]
 })
 @DynamicContentServiceService.register("table")
 export class TableComponent implements DynamicContent {

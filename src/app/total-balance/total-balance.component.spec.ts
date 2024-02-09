@@ -8,8 +8,8 @@ describe('TotalBalanceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TotalBalanceComponent ]
-    })
+    imports: [TotalBalanceComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(TotalBalanceComponent);
