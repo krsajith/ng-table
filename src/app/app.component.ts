@@ -9,6 +9,8 @@ import { TableDefinition } from './table-models';
 })
 export class AppComponent {
 
+  n = 1234567890.56
+
   title = 'ng-table';
   data = [
     { "name": "Pamela Altenwerth", "email": "Leslie_Welch31@yahoo.com" },
